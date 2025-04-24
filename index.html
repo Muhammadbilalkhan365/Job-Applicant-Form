@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walk-In Candidate (Male) Application Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-btn {
+            border: 1px solid #3498db;
+            color: #3498db;
+            background-color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .file-upload-btn:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .required:after {
+            content: " *";
+            color: red;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Walk-In Candidate (Male) Application Form</h1>
+        
+        <form id="applicationForm">
+            <div class="form-group">
+                <label for="email" class="required">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="post" class="required">Post Applying for</label>
+                <input type="text" id="post" name="post" placeholder="Enter the position you're applying for" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="city" class="required">City</label>
+                <select id="city" name="city" required>
+                    <option value="">Select City</option>
+                    <option value="Karachi">Karachi</option>
+                    <option value="Lahore">Lahore</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Rawalpindi">Rawalpindi</option>
+                    <option value="Peshawar">Peshawar</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="campus" class="required">Campus</label>
+                <select id="campus" name="campus" required>
+                    <option value="">Select Campus</option>
+                    <!-- Options will be populated based on city selection -->
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="required">Applicant Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" class="required">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cnic" class="required">CNIC Number</label>
+                <input type="text" id="cnic" name="cnic" placeholder="XXXXX-XXXXXXX-X" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address" class="required">Current Residential Address</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="organization">Current Organization</label>
+                <input type="text" id="organization" name="organization">
+            </div>
+            
+            <div class="form-group">
+                <label for="designation">Current Designation</label>
+                <input type="text" id="designation" name="designation">
+            </div>
+            
+            <div class="two-column">
+                <div class="form-group">
+                    <label for="currentSalary">Current Salary (PKR)</label>
+                    <input type="number" id="currentSalary" name="currentSalary">
+                </div>
+                
+                <div class="form-group">
+                    <label for="expectedSalary" class="required">Expected Salary (PKR)</label>
+                    <input type="number" id="expectedSalary" name="expectedSalary" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="noticePeriod" class="required">Notice Period</label>
+                <select id="noticePeriod" name="noticePeriod" required>
+                    <option value="">Select Notice Period</option>
+                    <option value="Immediately">Immediately</option>
+                    <option value="1 week">1 week</option>
+                    <option value="2 weeks">2 weeks</option>
+                    <option value="1 month">1 month</option>
+                    <option value="2 months">2 months</option>
+                    <option value="3 months">3 months</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="resume" class="required">Upload your updated profile (PDF, DOC, DOCX)</label>
+                <div class="file-upload">
+                    <button class="file-upload-btn" type="button">Choose File</button>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                </div>
+                <span id="file-name">No file chosen</span>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+        
+        <div id="successMessage" class="success-message">
+            Your application has been submitted successfully!
+        </div>
+    </div>
+
+    <script>
+        // Dependent dropdown for Campus based on City
+        document.getElementById('city').addEventListener('change', function() {
+            const city = this.value;
+            const campusDropdown = document.getElementById('campus');
+            
+            // Clear previous options
+            campusDropdown.innerHTML = '<option value="">Select Campus</option>';
+            
+            // Add options based on selected city
+            if (city === 'Karachi') {
+                addOption(campusDropdown, 'Main Campus', 'Main Campus');
+                addOption(campusDropdown, 'North Campus', 'North Campus');
+                addOption(campusDropdown, 'DHA Campus', 'DHA Campus');
+            } else if (city === 'Lahore') {
+                addOption(campusDropdown, 'Lahore Main Campus', 'Lahore Main Campus');
+                addOption(campusDropdown, 'Gulberg Campus', 'Gulberg Campus');
+                addOption(campusDropdown, 'DHA Phase 5 Campus', 'DHA Phase 5 Campus');
+            } else if (city === 'Islamabad') {
+                addOption(campusDropdown, 'Blue Area Campus', 'Blue Area Campus');
+                addOption(campusDropdown, 'F-8 Campus', 'F-8 Campus');
+            } else if (city === 'Rawalpindi') {
+                addOption(campusDropdown, 'Sadar Campus', 'Sadar Campus');
+                addOption(campusDropdown, 'Chandni Chowk Campus', 'Chandni Chowk Campus');
+            } else if (city === 'Peshawar') {
+                addOption(campusDropdown, 'University Road Campus', 'University Road Campus');
+                addOption(campusDropdown, 'Hayatabad Campus', 'Hayatabad Campus');
+            } else if (city === 'Other') {
+                addOption(campusDropdown, 'Other', 'Other');
+            }
+        });
+        
+        function addOption(selectElement, text, value) {
+            const option = document.createElement('option');
+            option.text = text;
+            option.value = value;
+            selectElement.add(option);
+        }
+        
+        // Show selected file name
+        document.getElementById('resume').addEventListener('change', function() {
+            const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+            document.getElementById('file-name').textContent = fileName;
+        });
+        
+        // Form submission
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the data to your server
+            // For now, we'll just show the success message
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+            document.getElementById('file-name').textContent = 'No file chosen';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
